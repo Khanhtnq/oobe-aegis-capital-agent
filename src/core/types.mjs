@@ -1,0 +1,39 @@
+/**
+ * Core Domain Types and Enums for Aegis Capital Agent
+ */
+
+export const ExecutionState = {
+  IDLE: 'IDLE',
+  MARKET_CONTEXT: 'MARKET_CONTEXT',
+  RISK_ASSESSMENT: 'RISK_ASSESSMENT',
+  SIMULATION: 'SIMULATION',
+  WAITING_FOR_SIGNATURE: 'WAITING_FOR_SIGNATURE',
+  EXECUTING: 'EXECUTING',
+  JOURNALED: 'JOURNALED',
+  REJECTED: 'REJECTED',
+  CIRCUIT_BROKEN: 'CIRCUIT_BROKEN'
+};
+
+export const DecisionOutcome = {
+  PASS: 'PASS',
+  REJECT: 'REJECT',
+  ABORT: 'ABORT',
+  HALTED: 'HALTED'
+};
+
+export const ActionType = {
+  SPOT_SWAP: 'SPOT_SWAP',
+  PERP_OPEN_LONG: 'PERP_OPEN_LONG',
+  PERP_OPEN_SHORT: 'PERP_OPEN_SHORT',
+  PERP_CLOSE: 'PERP_CLOSE',
+  MAGICBLOCK_PRIVATE_TRANSFER: 'MAGICBLOCK_PRIVATE_TRANSFER',
+  MULTIHOPPER_ROUTE: 'MULTIHOPPER_ROUTE',
+  ACEDATA_RESEARCH: 'ACEDATA_RESEARCH',
+  SUBAGENT_DELEGATE: 'SUBAGENT_DELEGATE'
+};
+
+export const CircuitBreakerState = {
+  CLOSED: 'CLOSED', // Normal operation
+  OPEN: 'OPEN',     // Circuit tripped - all execution blocked
+  HALF_OPEN: 'HALF_OPEN' // Recovering, limited trial positions
+};

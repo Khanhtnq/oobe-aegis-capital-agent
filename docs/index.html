@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aegis Autonomous Capital Agent | OOBE Protocol SAP MCP</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- TOP HEADER -->
+    <header class="top-nav">
+      <div class="brand">
+        <div class="logo-badge">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <div>
+          <h1 class="brand-title">AEGIS CAPITAL SENTINEL</h1>
+          <p class="brand-subtitle">Powered by OOBE Protocol · Synapse Agent Protocol (SAP MCP)</p>
+        </div>
+      </div>
+
+      <div class="header-badges">
+        <div class="badge status-badge live">
+          <span class="pulse-dot"></span> SAP MCP ONLINE
+        </div>
+        <div class="badge tier-badge">
+          <span class="gold-icon">★</span> Gold Tier (1.5x XP)
+        </div>
+        <div class="badge wallet-badge" title="Owner Non-Custodial Wallet">
+          <span class="wallet-icon">◈</span> 6mgh...Ddmf
+        </div>
+      </div>
+    </header>
+
+    <!-- METRICS STRIP -->
+    <section class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-label">TREASURY EQUITY</div>
+        <div class="metric-value" id="val-equity">$1,000.00 <span class="unit">USDC</span></div>
+        <div class="metric-sub text-green">▲ Non-Custodial Reserve</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">CIRCUIT BREAKER</div>
+        <div class="metric-value text-green" id="val-circuit">CLOSED <span class="unit">SAFE</span></div>
+        <div class="metric-sub">Max Drawdown: 0.00% / 2.50%</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">ARENA XP TELEMETRY</div>
+        <div class="metric-value text-gold" id="val-xp">1,350 <span class="unit">XP</span></div>
+        <div class="metric-sub" id="val-rank">Autonomous Operator</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">x402 SETTLEMENTS</div>
+        <div class="metric-value text-cyan" id="val-receipts">12 <span class="unit">RECEIPTS</span></div>
+        <div class="metric-sub">0.002 USDC / Micro-call</div>
+      </div>
+    </section>
+
+    <!-- MAIN TWO-COLUMN WORKSPACE -->
+    <main class="main-layout">
+      <!-- LEFT COLUMN: CONTROLS & RADAR -->
+      <section class="control-panel panel-card">
+        <div class="panel-header">
+          <h2>Autonomous Intent Dispatcher</h2>
+          <span class="pill">Policy-Gated</span>
+        </div>
+
+        <form id="intent-form" class="intent-form">
+          <div class="form-group">
+            <label for="action-select">Target Action & Rail</label>
+            <select id="action-select">
+              <option value="SPOT_SWAP">Jupiter DEX Aggregator (Spot Swap)</option>
+              <option value="PERP_OPEN_LONG">Adrena Perpetuals (2.0x Leveraged Long)</option>
+              <option value="MULTIHOPPER_ROUTE">MultiHopper (Sub-Agent Routing)</option>
+              <option value="MAGICBLOCK_PRIVATE">MagicBlock (Shielded Private Transfer)</option>
+              <option value="ACEDATA_RESEARCH">Ace Data Cloud MCP (Market Intelligence)</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="asset-input">Asset Mint</label>
+              <input type="text" id="asset-input" value="SOL" readonly>
+            </div>
+            <div class="form-group">
+              <label for="size-input">Position Size ($ USD)</label>
+              <input type="number" id="size-input" value="75.00" min="10" max="600" step="5">
+            </div>
+          </div>
+
+          <div class="guardrail-checklist">
+            <div class="check-item"><span class="check-icon">✓</span> Circuit Breaker: Max 2.5% Daily Loss</div>
+            <div class="check-item"><span class="check-icon">✓</span> Kelly Sizer: Half-Kelly (0.5x) Damping</div>
+            <div class="check-item"><span class="check-icon">✓</span> Quote Verifier: Max 3 bps Slippage Guard</div>
+            <div class="check-item"><span class="check-icon">✓</span> Non-Custodial: Owner Signature > $250</div>
+          </div>
+
+          <button type="submit" id="execute-btn" class="btn primary-btn">
+            <span>Execute Autonomous Cycle</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        </form>
+
+        <!-- SPECIALIST SUB-AGENTS -->
+        <div class="subagents-section">
+          <h3>Specialist Sub-Agent Vaults</h3>
+          <div class="subagent-list" id="subagent-list">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT COLUMN: EXECUTION JOURNAL & ARENA TAPE -->
+      <section class="journal-panel panel-card">
+        <div class="panel-header">
+          <h2>Synapse Onchain Execution Journal</h2>
+          <button id="proof-btn" class="btn text-btn">Generate Proof Bundle ⎙</button>
+        </div>
+
+        <div class="live-terminal" id="terminal-feed">
+          <div class="terminal-line system">[SYSTEM] Aegis Sentinel runtime initialized. Connected to OOBE SAP MCP gateway.</div>
+          <div class="terminal-line system">[POLICY] Master Guardrail risk-v3.2 active. Non-custodial signer ready.</div>
+        </div>
+
+        <!-- RECENT RECEIPTS TABLE -->
+        <div class="receipts-container">
+          <h3>Verified Onchain Receipts & x402 Hashes</h3>
+          <table class="receipt-table">
+            <thead>
+              <tr>
+                <th>Decision ID</th>
+                <th>Action</th>
+                <th>Status</th>
+                <th>Receipt / Digest</th>
+                <th>XP</th>
+              </tr>
+            </thead>
+            <tbody id="receipts-body">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <!-- PROOF MODAL -->
+    <div id="proof-modal" class="modal-overlay hidden">
+      <div class="modal-card">
+        <div class="modal-header">
+          <h3>Superteam Challenge Leaderboard Proof Bundle</h3>
+          <button id="close-modal-btn" class="close-btn">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p class="modal-desc">Verifiable cryptographic state digest ready for Superteam submission.</p>
+          <pre class="json-box" id="proof-json-display"></pre>
+        </div>
+        <div class="modal-footer">
+          <button id="copy-proof-btn" class="btn primary-btn">Copy Proof Digest</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- OWNER APPROVAL MODAL -->
+    <div id="approval-modal" class="modal-overlay hidden">
+      <div class="modal-card approval-card">
+        <div class="modal-header">
+          <h3 class="text-orange">Non-Custodial Owner Signature Required</h3>
+          <button id="close-approval-btn" class="close-btn">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p class="approval-note">This transaction size (<strong id="approval-amount">$300.00</strong>) exceeds the autonomous cap ($250.00). Steve and Aegis cannot sign on your behalf.</p>
+          <div class="unsigned-preview">
+            <span class="preview-label">Unsigned Base64 Transaction:</span>
+            <code id="unsigned-tx-code">AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...</code>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button id="reject-tx-btn" class="btn secondary-btn">Reject Transaction</button>
+          <button id="sign-tx-btn" class="btn primary-btn approve-btn">Sign in Phantom / Solflare</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="app-footer">
+      <div>Aegis Autonomous Capital Agent · Built for Superteam Earn: OOBE Protocol Challenge ($500 USDC)</div>
+      <div class="footer-links">
+        <a href="https://github.com/Khanhtnq/oobe-aegis-capital-agent" target="_blank">GitHub Repository</a>
+        <span>·</span>
+        <a href="https://steve.oobeprotocol.ai/" target="_blank">Steve Capital</a>
+        <span>·</span>
+        <a href="https://solscan.io/account/6mghraUR9NV2fA187VXoLN2rVS3WLA91UhqLfjtvDdmf" target="_blank">Solscan Explorer</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

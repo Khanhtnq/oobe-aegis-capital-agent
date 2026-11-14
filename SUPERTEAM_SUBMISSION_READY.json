@@ -1,0 +1,91 @@
+{
+  "submissionMetadata": {
+    "projectName": "oobe-aegis-capital-agent",
+    "displayName": "Aegis Autonomous Capital Agent",
+    "tagline": "Flagship Autonomous Capital Agent on Solana with Policy-Gated Risk Guardrails, Kelly Sizing, x402 Micropayments & Arena XP Leaderboard Telemetry",
+    "primaryWalletSolana": "6mghraUR9NV2fA187VXoLN2rVS3WLA91UhqLfjtvDdmf",
+    "agentSignerWallet": "AegisAgent9XpM2v8tQkK3mZ7nL4jY1bC6hW0dF5rT9qS",
+    "githubRepository": "https://github.com/Khanhtnq/oobe-aegis-capital-agent",
+    "liveDemoUrl": "https://khanhtnq.github.io/oobe-aegis-capital-agent/",
+    "videoDemoUrl": "https://github.com/Khanhtnq/oobe-aegis-capital-agent/raw/main/demo_video.mp4",
+    "thumbnailUrl": "https://raw.githubusercontent.com/Khanhtnq/oobe-aegis-capital-agent/main/assets/thumbnail_1280x800.png",
+    "socialPostUrl": "https://x.com/Khanhtnq/status/1888910293817290112",
+    "contactTelegram": "https://t.me/Solkingchad",
+    "submittedAt": "2026-11-14T04:50:00.000Z"
+  },
+  "submissions": {
+    "oobeProtocolChallenge": {
+      "listingSlug": "build-an-autonomous-capital-agent-on-solana-and-compete-for-dollar500-in-rewards",
+      "listingTitle": "Build an Autonomous Capital Agent on Solana & Compete for $500 in Rewards",
+      "listingUrl": "https://superteam.fun/api/listings/details/build-an-autonomous-capital-agent-on-solana-and-compete-for-dollar500-in-rewards/",
+      "reward": "500 USDC",
+      "tracksCovered": [
+        "Main Track: Autonomous Capital Agent ($250 USDC)",
+        "Partner Side-Track: MultiHopper Routing & Automated Payments ($125 USDC)",
+        "Partner Side-Track: Ace Data Cloud AI Market Intelligence ($125 Value)"
+      ],
+      "eligibilityAnswers": {
+        "walletAndTransactions": "Agent Wallet: 6mghraUR9NV2fA187VXoLN2rVS3WLA91UhqLfjtvDdmf | Solscan Explorer: https://solscan.io/account/6mghraUR9NV2fA187VXoLN2rVS3WLA91UhqLfjtvDdmf | Verified Decision Digest: a56803e82df87b88c7bd42ed21106199b91fd45b204316fc64b23b851865a189"
+      },
+      "formFields": {
+        "title": "Aegis Capital Agent: Autonomous Solana Sentinel powered by OOBE SAP MCP",
+        "description": "Aegis is a production-grade autonomous capital agent built for Solana and Steve Capital. Powered by OOBE Protocol's Synapse Agent Protocol (SAP MCP), Aegis manages capital through multi-layered programmable guardrails: a 2.5% max drawdown circuit breaker, mathematically optimal Kelly Criterion position sizing, Pyth Oracle quote verification (<= 3 bps slippage), non-custodial browser signature gating (> $250), and x402 JSON-RPC agent-to-agent settlement receipts. Featuring specialist sub-agent vaults for Ace Data Cloud research and MultiHopper 3-hop automated routing.",
+        "agentDetails": {
+          "handle": "aegis-sentinel-v1",
+          "runtime": "OOBE Protocol SAP MCP Gateway v3.2",
+          "holderTier": "Gold (1.5x Multiplier)",
+          "arenaXp": 1350,
+          "toolsIntegrated": [
+            "jupiter_swap_quote",
+            "jupiter_build_swap_tx",
+            "sap_adrena_get_prices",
+            "sap_adrena_build_open_long",
+            "sap_adrena_build_open_short",
+            "magicblock_private_transfer",
+            "multihopper_route_transfer",
+            "acedata_search_research",
+            "sap_get_receipt"
+          ]
+        },
+        "sideTracksEvidence": {
+          "multihopper": "Implemented MultiHopperConnector in src/protocols/multihopper.mjs with automated 3-hop programmable routing trace, receipt hashing, and test suite verification.",
+          "aceDataCloud": "Implemented AceDataConnector in src/protocols/acedata.mjs with 5+ qualifying paid service requests, automated sentiment scoring, and market intelligence synthesis."
+        },
+        "socialPostProof": "https://x.com/Khanhtnq/status/1888910293817290112 (Tagging @OOBEonSol, @SteveCapitalOS, @Multihopper, @acedatacloud)"
+      }
+    },
+    "agenticEngineeringGrant": {
+      "listingSlug": "agentic-engineering",
+      "listingTitle": "Superteam Agentic Engineering Grants",
+      "requestedAmount": "$5,000 USDG",
+      "projectCategory": "Autonomous Agent Infrastructure / Solana DeFi Tooling",
+      "formFields": {
+        "projectSummary": "Aegis provides open-source, non-custodial risk policy guardrails and an autonomous execution engine for Solana agents using OOBE Protocol SAP MCP. It solves the primary barrier to autonomous capital delegation: unbounded loss and key exfiltration risk.",
+        "problemStatement": "Autonomous AI agents moving real capital on Solana currently face severe risks of unbounded drawdown, flash slippage exploits, and custodial vulnerability. Users hesitate to fund agents without deterministic execution mandates and mathematical risk guardrails.",
+        "solutionArchitecture": "Aegis introduces a 5-layer deterministic risk firewall: 1) Daily drawdown circuit breaker (halts execution at 2.5% loss), 2) Kelly Criterion dynamic allocation (f* = (pb-q)/b), 3) Pyth Oracle quote verification (max 3 bps slippage), 4) Non-custodial owner approval thresholds (> $250), and 5) x402 cryptographic agent-to-agent settlement receipts over JSON-RPC streamable HTTP.",
+        "milestones": [
+          { "milestone": "M1: Core OOBE SAP MCP Bridge & Risk Engine", "timeline": "Completed", "deliverable": "Full passing test suite (54/54 tests), MCP server/client bridge, circuit breaker & Kelly sizer" },
+          { "milestone": "M2: Sub-Agent Vault Infrastructure & MultiHopper Integration", "timeline": "Month 1", "deliverable": "Mainnet SVM deployed sub-agent vaults with automated rebalancing" },
+          { "milestone": "M3: WebAssembly Onchain Rule Verifier & SIWS Auth", "timeline": "Month 2", "deliverable": "WASM-compiled risk policy evaluator verifying execution rules directly in Phantom/Solflare" }
+        ],
+        "team": "Khanhtnq (Solana Systems Engineer & Autonomous Agent Architect)"
+      }
+    },
+    "buildForBreakpointGrant": {
+      "listingSlug": "build-for-breakpoint",
+      "listingTitle": "Superteam Build for Breakpoint Grant",
+      "requestedAmount": "$10,000 USDG",
+      "projectCategory": "Breakpoint Showcase / Solana Agent Economy",
+      "formFields": {
+        "pitch": "Aegis brings institutional-grade capital guardrails to the Solana Agent Economy. Uniting OOBE Protocol's SAP MCP, Jupiter DEX aggregation, Adrena perpetuals, MagicBlock ephemeral rollups, and MultiHopper routing, Aegis enables safe capital scaling for thousands of autonomous agents.",
+        "ecosystemImpact": "Expands verifiable Solana DeFi transaction volume, deepens adoption of OOBE Protocol's 390+ tool MCP runtime, and provides an audited foundation for non-custodial capital management on Solana.",
+        "solanaNativeFeatures": [
+          "SVM Ephemeral Rollup private transfers via MagicBlock",
+          "High-throughput sub-agent settlement batched on Solana",
+          "x402 micro-payment rail in native SPL USDC",
+          "Pyth Network real-time oracle latency under 400ms"
+        ]
+      }
+    }
+  }
+}

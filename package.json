@@ -1,0 +1,27 @@
+{
+  "name": "oobe-aegis-capital-agent",
+  "version": "1.0.0",
+  "description": "Autonomous Capital Agent on Solana powered by OOBE Protocol SAP MCP, Policy-Gated Risk Guardrails, Kelly Sizing, x402 Micropayments & Arena XP Optimization",
+  "type": "module",
+  "main": "src/index.mjs",
+  "scripts": {
+    "start": "node src/index.mjs",
+    "test": "node --test test/*.test.mjs",
+    "test:verbose": "node --test --test-reporter=spec test/*.test.mjs"
+  },
+  "keywords": [
+    "solana",
+    "oobe-protocol",
+    "sap-mcp",
+    "steve-capital",
+    "autonomous-agent",
+    "defi",
+    "risk-guardrails",
+    "x402",
+    "arena-xp",
+    "multihopper",
+    "ace-data-cloud"
+  ],
+  "author": "Khanhtnq <218711032+Khanhtnq@users.noreply.github.com>",
+  "license": "MIT"
+}
