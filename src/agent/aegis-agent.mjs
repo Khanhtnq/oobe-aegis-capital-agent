@@ -136,14 +136,16 @@ export class AegisCapitalAgent {
         slippageBps: 3
       });
 
-      // Verify quote against Pyth oracle mark
+      // Verify quote against Pyth oracle mark, confidence interval & staleness
       const quoteVerif = this.riskEngine.quoteVerifier.verifyQuote({
         inputMint: 'USDC',
         outputMint: asset,
         inAmount: sizeUsd,
         outAmount: quoteRes.result.data.outAmount,
         oracleMarkPrice: quoteRes.result.data.oracleReferencePrice,
-        estimatedSlippageBps: quoteRes.result.data.slippageBps
+        estimatedSlippageBps: quoteRes.result.data.slippageBps,
+        oracleConfidence: quoteRes.result.data.oracleConfidence ?? 0,
+        oracleAgeSeconds: quoteRes.result.data.oracleAgeSeconds ?? 0
       });
 
       if (!quoteVerif.valid) {

@@ -5,7 +5,9 @@ import { QuoteVerifier } from '../src/core/quote-verifier.mjs';
 describe('Quote Verifier & Slippage Guardrail Tests', () => {
   const verifier = new QuoteVerifier({
     maxSlippageBps: 3, // 3 bps
-    maxPriceDeviationPct: 0.25 // 0.25%
+    maxPriceDeviationPct: 0.25, // 0.25%
+    maxOracleConfidenceBps: 50, // 50 bps
+    maxOracleAgeSeconds: 30
   });
 
   it('validates quotes with tight slippage (<= 3 bps)', () => {
@@ -64,5 +66,57 @@ describe('Quote Verifier & Slippage Guardrail Tests', () => {
 
     assert.strictEqual(res.valid, false);
     assert.match(res.reason, /Amounts must be strictly positive/);
+  });
+
+  it('validates quotes within Pyth confidence interval and freshness thresholds', () => {
+    const oracleMarkPrice = 1 / 195.45;
+    const res = verifier.verifyQuote({
+      inputMint: 'USDC',
+      outputMint: 'SOL',
+      inAmount: 100.0,
+      outAmount: 100.0 / 195.45,
+      oracleMarkPrice,
+      estimatedSlippageBps: 1.5,
+      oracleConfidence: oracleMarkPrice * 0.001, // 10 bps <= 50 bps
+      oracleAgeSeconds: 4
+    });
+
+    assert.strictEqual(res.valid, true);
+    assert.strictEqual(res.oracleConfidenceBps, 10);
+    assert.strictEqual(res.oracleAgeSeconds, 4);
+  });
+
+  it('rejects quotes when Pyth confidence interval is too wide (> 50 bps)', () => {
+    const oracleMarkPrice = 1 / 195.45;
+    const res = verifier.verifyQuote({
+      inputMint: 'USDC',
+      outputMint: 'SOL',
+      inAmount: 100.0,
+      outAmount: 100.0 / 195.45,
+      oracleMarkPrice,
+      estimatedSlippageBps: 1.0,
+      oracleConfidence: oracleMarkPrice * 0.008 // 80 bps > 50 bps
+    });
+
+    assert.strictEqual(res.valid, false);
+    assert.strictEqual(res.oracleConfidenceBps, 80);
+    assert.match(res.reason, /Pyth confidence interval too wide/);
+  });
+
+  it('rejects quotes when Pyth oracle feed is stale (> 30s)', () => {
+    const oracleMarkPrice = 1 / 195.45;
+    const res = verifier.verifyQuote({
+      inputMint: 'USDC',
+      outputMint: 'SOL',
+      inAmount: 100.0,
+      outAmount: 100.0 / 195.45,
+      oracleMarkPrice,
+      estimatedSlippageBps: 1.0,
+      oracleConfidence: oracleMarkPrice * 0.001,
+      oracleAgeSeconds: 45
+    });
+
+    assert.strictEqual(res.valid, false);
+    assert.match(res.reason, /Pyth oracle stale/);
   });
 });

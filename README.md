@@ -3,8 +3,9 @@
 [![OOBE Protocol](https://img.shields.io/badge/Powered%20By-OOBE%20Protocol%20SAP%20MCP-14f195)](https://steve.oobeprotocol.ai/)
 [![Solana](https://img.shields.io/badge/Blockchain-Solana%20SVM-9945ff)](https://solana.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Tests: 54/54 Passing](https://img.shields.io/badge/Tests-54%2F54%20PASSING-success)](test/)
+[![Tests: 57/57 Passing](https://img.shields.io/badge/Tests-57%2F57%20PASSING-success)](test/)
 [![Arena XP: Gold Tier](https://img.shields.io/badge/Arena%20XP-Gold%20Tier%20(1.5x)-f59e0b)](#arena-xp-leaderboard-telemetry)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-06b6d4)](https://khanhtnq.github.io/oobe-aegis-capital-agent/)
 
 > **Flagship Autonomous Capital Agent on Solana with Policy-Gated Risk Guardrails, Kelly Position Sizing, x402 Micropayments & Arena XP Leaderboard Telemetry.**  
 > Built for the **Superteam Earn: OOBE Protocol Steve Capital Challenge ($500 USDC)** and **Superteam Agentic Engineering Grants**.
@@ -68,8 +69,8 @@
 ### 2. Policy-Gated Risk Guardrails
 - **Max Drawdown Circuit Breaker**: Halts execution instantly if rolling daily losses breach **2.5%** or if consecutive losses reach the limit. Implements cooling period and `HALF_OPEN` trial recovery.
 - **Kelly Criterion Position Sizer**: Evaluates win probability and payoff odds ($f^* = \frac{p \cdot b - q}{b}$), applying a **0.5x Half-Kelly** safety dampener and hard **$500 single-position ceiling**.
-- **Pyth Oracle Quote Verifier**: Strictly enforces maximum **3 bps** slippage tolerance and detects anomalous liquidity routing before unsigned transactions are staged.
-- **Non-Custodial Ownership Gating**: Orders exceeding **$250.00** require explicit owner approval via browser wallet (Phantom/Solflare); agent signer keys never possess unilateral withdrawal rights.
+- **Pyth Oracle Quote Verifier**: Strictly enforces maximum **3 bps** slippage tolerance, **0.25%** mark price deviation, **50 bps** Pyth confidence-interval width, and **30s** oracle freshness before unsigned transactions are staged.
+- **Non-Custodial Ownership Gating**: Orders `>= $250.00` require explicit owner approval via browser wallet (Phantom/Solflare); agent signer keys never possess unilateral withdrawal rights.
 
 ### 3. Specialist Sub-Agent Infrastructure
 - **Dedicated Delegated Vaults**:
@@ -88,7 +89,7 @@
 
 ---
 
-## 🧪 Comprehensive Test Suite (54 Tests, 16 Suites, 0 Placeholders)
+## 🧪 Comprehensive Test Suite (57 Tests, 16 Suites, 0 Placeholders)
 
 The test suite runs natively on Node.js using standard ESM assertions with zero external test runners:
 
@@ -101,7 +102,7 @@ npm test
 |---|---|:---:|:---:|
 | Circuit Breaker Guardrail | `test/circuit-breaker.test.mjs` | 6 | PASS |
 | Kelly Criterion Position Sizer | `test/kelly-sizer.test.mjs` | 5 | PASS |
-| Quote Verifier & Slippage Guard | `test/quote-verifier.test.mjs` | 4 | PASS |
+| Quote Verifier, Pyth Confidence & Slippage Guard | `test/quote-verifier.test.mjs` | 7 | PASS |
 | Policy-Gated Risk Engine | `test/risk-engine.test.mjs` | 6 | PASS |
 | SAP MCP Server JSON-RPC | `test/sap-mcp-server.test.mjs` | 4 | PASS |
 | SAP MCP Client Bridge | `test/sap-mcp-client.test.mjs` | 2 | PASS |
@@ -115,7 +116,7 @@ npm test
 | Synapse Onchain Journal | `test/execution-journal.test.mjs` | 2 | PASS |
 | Policy Guardrails & Limits | `test/policy-guardrails.test.mjs` | 2 | PASS |
 | Full Agent Lifecycle Integration | `test/full-agent-lifecycle.test.mjs` | 3 | PASS |
-| **TOTAL** | **16 Suites** | **54 Tests** | **100% PASS** |
+| **TOTAL** | **16 Suites** | **57 Tests** | **100% PASS** |
 
 ---
 
@@ -157,6 +158,7 @@ Open `docs/index.html` in any browser or visit the live GitHub Pages deployment:
 
 - **High-Resolution Banner (1280x800)**: [`assets/thumbnail_1280x800.png`](assets/thumbnail_1280x800.png)
 - **1080p Video Demonstration**: [`demo_video.mp4`](demo_video.mp4)
+- **Agentic Engineering Session Proof**: [`docs/AGENTIC_ENGINEERING_SESSION_PROOF.md`](docs/AGENTIC_ENGINEERING_SESSION_PROOF.md)
 - **Superteam Submission Manifest**: [`SUPERTEAM_SUBMISSION_READY.json`](SUPERTEAM_SUBMISSION_READY.json)
 
 ---

@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
       xp: `+${earnedXp}`
     });
 
-    logTerminal(`[RISK CLEAR] 3 bps slippage & Kelly position sized approved.`, 'success');
+    logTerminal(`[RISK CLEAR] Half-Kelly sizing, <=3 bps slippage & Pyth confidence band (8 bps, 2s age) approved.`, 'success');
     logTerminal(`[x402 RELAYED] 0.002 USDC micropayment settled on OOBE SAP Gateway.`, 'info');
     logTerminal(`[CONFIRMED] Transaction executed: ${mockHash} | +${earnedXp} Arena XP`, 'success');
 

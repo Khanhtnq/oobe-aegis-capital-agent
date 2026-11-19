@@ -29,7 +29,9 @@ export class RiskEngine {
     });
     this.quoteVerifier = new QuoteVerifier({
       maxSlippageBps: this.policy.executionRules.maxSlippageBps,
-      maxPriceDeviationPct: this.policy.executionRules.maxPriceDeviationPct
+      maxPriceDeviationPct: this.policy.executionRules.maxPriceDeviationPct,
+      maxOracleConfidenceBps: this.policy.executionRules.maxOracleConfidenceBps,
+      maxOracleAgeSeconds: this.policy.executionRules.maxOracleAgeSeconds
     });
   }
 

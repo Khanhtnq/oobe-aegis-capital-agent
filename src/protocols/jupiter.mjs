@@ -40,6 +40,8 @@ export class JupiterConnector {
       outAmount: Number(outAmount.toFixed(6)),
       price: Number(effectiveRate.toFixed(6)),
       oracleReferencePrice: rate,
+      oracleConfidence: Number((rate * 0.0008).toFixed(8)), // 8 bps Pyth confidence band
+      oracleAgeSeconds: 2,
       slippageBps: Math.min(slippageBps, 3),
       priceImpactPct: 0.015,
       routePlan: [

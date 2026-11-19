@@ -27,8 +27,10 @@ export const DEFAULT_RISK_POLICY = {
 
   // Execution verification & slippage
   executionRules: {
-    maxSlippageBps: 3,         // Max 3 basis points (0.03%) slippage allowed
-    maxPriceDeviationPct: 0.25,// Max 0.25% deviation from Pyth oracle mark
+    maxSlippageBps: 3,            // Max 3 basis points (0.03%) slippage allowed
+    maxPriceDeviationPct: 0.25,   // Max 0.25% deviation from Pyth oracle mark
+    maxOracleConfidenceBps: 50,   // Max 50 bps (0.50%) Pyth confidence interval width
+    maxOracleAgeSeconds: 30,      // Max 30s Pyth feed staleness
     simulateBeforeExecute: true,
     requireOwnerSignatureAboveUsd: 250.0,
   },
